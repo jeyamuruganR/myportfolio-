@@ -1,5 +1,6 @@
 /* ===== Hero Section ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
 @font-face {
   font-family: font1;
@@ -24,8 +25,9 @@
 /* ===== HERO ===== */
 .herosection {
   width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #2f3447, #3a3f5a);
+  height: 100vh;
+  /* background: linear-gradient(135deg, #2f3447, #3a3f5a); */
+  background: #2f3447;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,6 +54,8 @@
   flex-direction: column;
   justify-content: center;
   width: 50%;
+  /* background-color: red; */
+  padding: 20px;
 }
 
 .leftcontainer h1 {
@@ -111,6 +115,8 @@
   position: relative; /* 🔥 REQUIRED */
   border-radius: 16px;
   overflow: hidden;
+  border-radius: 0;
+  /* box-shadow: 0 8px 16px #3a3f5a; */
 }
 
 /* Overlay */
@@ -119,11 +125,13 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
-    rgba(47, 52, 71, 0.35),
-    rgba(58, 63, 90, 0.15)
+    180deg,
+    #2f344720 50%,
+     #2f3447 80%
   );
   pointer-events: none;
+  
+  
 }
 
 /* Image */
@@ -131,10 +139,67 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* filter: drop-shadow(rgb(0, 0, 0) 1rem 1rem 10px); */
+
+  
+}
+
+.icon-orbitcontainer{
+position: absolute;
+  bottom: 20px;
+  /* left: 200px; */
+  overflow: hidden;
+  width: 80%;
+  padding: 20px;
+  height: 60px;
+
+
+}
+.icon-orbitcontainer::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #2f3447 ,
+    #b3141f00,
+     #2f3447
+  );
+  pointer-events: none; 
+}
+.icon-orbit {
+  width: max-content;
+  display: flex;
+  gap: 100px;
+  font-size: 1.5rem;
+  animation: orbit 25s linear infinite;
+  color: white;
+  /* background-color: red; */
+  
+}
+
+
+@keyframes orbit {
+  0% {
+    transform: translateX(0);
+      
+  }
+  100% {
+    transform: translateX(-50%);
+    
+  }
+}
+
+.icon-orbit:hover {
+  animation-play-state: paused;
 }
 
 /* ===== TABLET ===== */
 @media (max-width: 900px) {
+  .herosection {
+    height: 100vh;
+    overflow: hidden;
+  }
   .herosection1-content {
     flex-direction: column-reverse;
     text-align: center;
@@ -154,10 +219,20 @@
   .hireme-btn {
     margin: 0 auto;
   }
+
+   .icon-orbitcontainer{
+position: absolute;
+  top: 60%;
+
+}
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 480px) {
+  .herosection {
+    height: 100vh;
+    overflow: hidden;
+  }
   .leftcontainer h1 {
     font-size: 1.9rem;
   }
@@ -174,4 +249,12 @@
   .image-container {
     max-width: 260px;
   }
+  .icon-orbitcontainer{
+    bottom: -220px;
+  }
+  .icon-orbitcontainer{
+position: absolute;
+  top: 50%;
+
+}
 }
